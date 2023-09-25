@@ -2,8 +2,8 @@ import depthai as dai
 import cv2
 import numpy as np
 
-# Path to your converted .blob model file "C:\Users\61435\Downloads\bestnew-simplified.blob"
-MODEL_PATH = "C:\\Users\\gaskin.ENDEAVOURGROUP\\Desktop\\depthai\\depthai-python\\examples\\ColorCamera\\vinpac-simplified_v4.blob"
+# Add model path
+MODEL_PATH = "INSERT_MODEL_PATH"
 
 # Initialize DepthAI pipeline and device
 pipeline = dai.Pipeline()
@@ -13,7 +13,7 @@ cam_rgb = pipeline.createColorCamera()
 cam_rgb.setBoardSocket(dai.CameraBoardSocket.CAM_A)
 cam_rgb.setFps(30.0)
 
-# Create a manipulator stage in your pipeline to resize the image
+# Create a manipulator stage in input image pipeline to resize the image
 manip = pipeline.createImageManip()
 manip.initialConfig.setResize(448, 224)
 cam_rgb.video.link(manip.inputImage)
